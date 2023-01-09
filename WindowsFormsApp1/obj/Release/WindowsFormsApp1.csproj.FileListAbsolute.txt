@@ -1,0 +1,11 @@
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.ResolveComReference.cache
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\WindowsFormsApp1.MainForm.resources
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Release\AutoDailyReport.exe.config
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Release\AutoDailyReport.exe
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Release\AutoDailyReport.pdb
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\AutoDailyReport.Properties.Resources.resources
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\AutoDailyReport.exe
+C:\Users\김준우\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Release\AutoDailyReport.pdb
