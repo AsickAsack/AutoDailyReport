@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using Newtonsoft.Json;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace WindowsFormsApp1
@@ -10,12 +11,24 @@ namespace WindowsFormsApp1
 
     public partial class MainForm : Form
     {
-
-        string FilePath = null;
+        ExcelHelper Helper;
 
         public MainForm()
         {
            InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Helper = new ExcelHelper();
+            if (Helper.DataFileCheck())
+            {
+                MyName_TextBox.Text = Helper.MyData[0];
+                MyTask_TextBox.Text = Helper.MyData[1];
+                FilePath_TextBox.Text = Helper.MyData[2];
+                this.ActiveControl = MyPlan_TextBox;
+            }
+
         }
 
         //경로 선택
@@ -27,7 +40,7 @@ namespace WindowsFormsApp1
 
             if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                FilePath_TextBox.Text = FilePath = folderBrowserDialog.SelectedPath;
+                FilePath_TextBox.Text = Helper.MyData[2] = folderBrowserDialog.SelectedPath;
             }
 
         }
@@ -35,23 +48,26 @@ namespace WindowsFormsApp1
         //파일 생성
         private void Create_Btn_Click(object sender, EventArgs e)
         {
-            if (FilePath == null || MyName_TextBox.TextLength == 0 || MyTask_TextBox.TextLength == 0 || MyPlan_TextBox.TextLength == 0)
+            if (FilePath_TextBox.TextLength == 0 || MyName_TextBox.TextLength == 0 || MyTask_TextBox.TextLength == 0 || MyPlan_TextBox.TextLength == 0)
             {
                 MessageBox.Show("정보를 다 입력해주세요!");
                 return;
             }
 
-            ExcelHelper Helper = new ExcelHelper();
-            Helper.SetTaskAndPlan(MyName_TextBox.Text,MyTask_TextBox.Text,MyPlan_TextBox.Text, FilePath);
+             
+            Helper.SetTaskAndPlan(MyName_TextBox.Text,MyTask_TextBox.Text,MyPlan_TextBox.Text, Helper.MyData[2]);
 
             //Application.Exit();
           
         }
+
+      
     }
 
     public class ExcelHelper
     {
         public string[] MyCell;
+        public string[] MyData;
         public Excel.Application ExcelApp = null;
         public Excel.Workbook wb = null;
         public Excel.Worksheet ws = null;
@@ -59,13 +75,21 @@ namespace WindowsFormsApp1
 
         public ExcelHelper()
         {
+            if (!System.IO.File.Exists(Environment.CurrentDirectory + "\\Template.xlsx"))
+            {
+                MessageBox.Show("템플릿 파일을 찾을 수 없습니다!");
+                Application.Exit();
+                return;
+            }
+
             ExcelApp = new Excel.Application();
+            
             wb = ExcelApp.Workbooks.Open(Environment.CurrentDirectory + "\\Template.xlsx");
             ws = wb.Worksheets[1];
             MyCell = new string[] { "G4", "K4", "N4", "Q4", "G5", "D7", "D25", "D33" };
-
+            MyData = new string[3];
             Today = DateTime.Now;
-
+             
             CultureInfo cultures = CultureInfo.CreateSpecificCulture("ko-KR");
 
             ws.Range[MyCell[0]].Value = Today.Year;
@@ -77,6 +101,9 @@ namespace WindowsFormsApp1
 
         public void SetTaskAndPlan(string Name, string Task, string Plan, string FilePath)
         {
+            MyData[0] = Name;
+            MyData[1] = Task;
+
             ws.Range[MyCell[4]].Value = Task;
             ws.Range[MyCell[5]].Value = Plan;
 
@@ -87,6 +114,33 @@ namespace WindowsFormsApp1
 
             Marshal.ReleaseComObject(wb);
             Marshal.ReleaseComObject(ExcelApp);
+
+            SaveJson();
+
+            MessageBox.Show("생성이 완료됐습니다!");
+        }
+
+        public bool DataFileCheck()
+        {
+            if (System.IO.File.Exists(Environment.CurrentDirectory + "\\Data.json"))
+            {
+                LoadJson();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public void SaveJson()
+        {
+            string data = JsonConvert.SerializeObject(MyData);
+            System.IO.File.WriteAllText(Environment.CurrentDirectory + "\\Data.json",data);
+        }
+
+        public void LoadJson()
+        {
+           string data =  System.IO.File.ReadAllText(Environment.CurrentDirectory + "\\Data.json");
+            MyData = JsonConvert.DeserializeObject<string[]>(data);
         }
 
 

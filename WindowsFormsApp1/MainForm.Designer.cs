@@ -163,6 +163,7 @@ namespace WindowsFormsApp1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "일일 보고서 생성기";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.grpFont.ResumeLayout(false);
             this.grpFont.PerformLayout();
             this.ResumeLayout(false);
