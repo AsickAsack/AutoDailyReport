@@ -28,3 +28,17 @@ C:\Users\KJW\Documents\GitHub\AutoDailyReport\WindowsFormsApp1\obj\Release\Windo
 C:\Users\KJW\Documents\GitHub\AutoDailyReport\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.CopyComplete
 C:\Users\KJW\Documents\GitHub\AutoDailyReport\WindowsFormsApp1\obj\Release\AutoDailyReport.exe
 C:\Users\KJW\Documents\GitHub\AutoDailyReport\WindowsFormsApp1\obj\Release\AutoDailyReport.pdb
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\bin\Release\AutoDailyReport.exe.config
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\bin\Release\AutoDailyReport.exe
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\bin\Release\Newtonsoft.Json.xml
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\bin\Release\Newtonsoft.Json.Bson.xml
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.ResolveComReference.cache
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\WindowsFormsApp1.MainForm.resources
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\AutoDailyReport.Properties.Resources.resources
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.Fody.CopyLocal.cache
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\WindowsFormsApp1.csproj.CopyComplete
+C:\UnityProjects\AutoDailyReport\WindowsFormsApp1\obj\Release\AutoDailyReport.exe

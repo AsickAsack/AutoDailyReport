@@ -26,6 +26,7 @@ namespace WindowsFormsApp1
                 MyName_TextBox.Text = Helper.MyData[0];
                 MyTask_TextBox.Text = Helper.MyData[1];
                 FilePath_TextBox.Text = Helper.MyData[2];
+                MyPlan_TextBox.Text = Helper.MyData[3];
                 this.ActiveControl = MyPlan_TextBox;
             }
 
@@ -61,7 +62,10 @@ namespace WindowsFormsApp1
           
         }
 
-      
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("개발 - 김준우");
+        }
     }
 
     public class ExcelHelper
@@ -87,7 +91,7 @@ namespace WindowsFormsApp1
             wb = ExcelApp.Workbooks.Open(Environment.CurrentDirectory + "\\Template.xlsx");
             ws = wb.Worksheets[1];
             MyCell = new string[] { "G4", "K4", "N4", "Q4", "G5", "D7", "D25", "D33" };
-            MyData = new string[3];
+            MyData = new string[4];
             Today = DateTime.Now;
              
             CultureInfo cultures = CultureInfo.CreateSpecificCulture("ko-KR");
@@ -103,6 +107,7 @@ namespace WindowsFormsApp1
         {
             MyData[0] = Name;
             MyData[1] = Task;
+            MyData[3] = Plan;
 
             ws.Range[MyCell[4]].Value = Task;
             ws.Range[MyCell[5]].Value = Plan;
@@ -111,13 +116,13 @@ namespace WindowsFormsApp1
 
             wb.Close();
             ExcelApp.Quit();
-
+            /*
+            Marshal.ReleaseComObject(ws);
             Marshal.ReleaseComObject(wb);
             Marshal.ReleaseComObject(ExcelApp);
-
+            */
             SaveJson();
-
-            MessageBox.Show("생성이 완료됐습니다!");
+            MessageBox.Show("생성이 완료됐습니다!");            
         }
 
         public bool DataFileCheck()
